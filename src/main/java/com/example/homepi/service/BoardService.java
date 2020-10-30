@@ -20,7 +20,13 @@ public class BoardService implements BoardServiceInterface{
 	@Override
 	//@Transactional(propagation=Propagation.REQUIRED) //@Transactional(propagation=Propagation.REQUIRED)
 	public void writeBoard(BoardVo boardVo) {
-		boardDao.writeBoard(boardVo);
+		int result=boardDao.writeBoard(boardVo);
+		//로그 처리하기
+		if(result>=1) {
+			System.out.println("게시물 수정을 성공적으로 마쳤습니다.");
+		}else {
+			System.out.println("게시물 수정을 실패하였습니다.");
+		}
 	}
 
 	@Override
@@ -30,19 +36,16 @@ public class BoardService implements BoardServiceInterface{
 
 	@Override
 	public BoardVo viewBoard(int postno) {
-		// TODO Auto-generated method stub
 		return boardDao.viewBoard(postno);
 	}
 
 	@Override
 	public void updateBoard(BoardVo boardVo) {
-		// TODO Auto-generated method stub
 		int result=boardDao.updateBoard(boardVo);
 		if(result>=1) {
-			System.out.println("셩ㄱ오!!!!!!!!!!!!!!!!!!!!!");
+			System.out.println("게시물 수정을 성공적으로 마쳤습니다.");
 		}else {
-			System.out.println("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb오!!!!!!!!!!!!!!!!!!!!!");
-
+			System.out.println("게시물 수정을 실패하였습니다.");
 		}
 	}
 	
