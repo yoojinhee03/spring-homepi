@@ -71,4 +71,12 @@ public class BoardController {
 		boardService.updateBoard(boardVo);
 		return "redirect:..";
 	}
+	
+	//게시물 삭제 처리
+	@PostMapping(value="homepi/board/deleteProc")
+	public String deleteProc(@RequestParam(value="postno") int postno, Model model) {
+		boardService.deleteBoard(postno);
+		return "redirect:..";
+	}
+
 }

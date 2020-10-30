@@ -19,4 +19,8 @@
   		contents=#{contents}
   		where postno=#{postno}::integer;
   </update>
+  <delete id="deleteBoard">
+  	delete from post
+  		where postno=#{postno};
+  </delete>
 </mapper>

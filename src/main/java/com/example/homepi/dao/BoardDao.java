@@ -33,4 +33,9 @@ public class BoardDao {
 		// TODO Auto-generated method stub
 		return sqlSession.update(NAMESPACE+"updateBoard", boardVo);
 	}
+
+	public int deleteBoard(int postno) {
+		// TODO Auto-generated method stub
+		return sqlSession.delete(NAMESPACE+"deleteBoard", postno);
+	}
 }

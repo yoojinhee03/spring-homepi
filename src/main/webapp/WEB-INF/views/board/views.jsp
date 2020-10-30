@@ -41,6 +41,7 @@ $.ajax({
 </script>
 </head>
 <body>
+	<a href="homepi/board/write">게시물 작성!!!</a>
 	<c:forEach var="ll" items="${board}">
 	<div style="border:1px solid gray">
 		작성자 : ${ll.empno}<br>
@@ -49,6 +50,10 @@ $.ajax({
 		<form action="homepi/board/update" method="post">
 			<input type="hidden" name="postno" value="${ll.postno }">
 			<input type="submit" value="수정">
+		</form>
+		<form action="homepi/board/deleteProc" method="post">
+			<input type="hidden" name="postno" value="${ll.postno }">
+			<input type="submit" value="삭제">
 		</form>
 	</div>
 	</c:forEach>

@@ -48,5 +48,15 @@ public class BoardService implements BoardServiceInterface{
 			System.out.println("게시물 수정을 실패하였습니다.");
 		}
 	}
+
+	@Override
+	public void deleteBoard(int postno) {
+		int result=boardDao.deleteBoard(postno);
+		if(result>=1) {
+			System.out.println("게시물 삭제를 성공적으로 마쳤습니다.");
+		}else {
+			System.out.println("게시물 삭제를 실패하였습니다.");
+		}
+	}
 	
 }
