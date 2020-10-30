@@ -1,5 +1,6 @@
 package com.example.homepi.service;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +18,14 @@ public class BoardService implements BoardServiceInterface{
 	BoardDao boardDao;
 	
 	@Override
-	@Transactional(propagation=Propagation.REQUIRED) //@Transactional(propagation=Propagation.REQUIRED)
+	//@Transactional(propagation=Propagation.REQUIRED) //@Transactional(propagation=Propagation.REQUIRED)
 	public void writeBoard(BoardVo boardVo) {
 		boardDao.writeBoard(boardVo);
+	}
+
+	@Override
+	public List viewBoard() {
+		return boardDao.viewBoard();
 	}
 	
 }

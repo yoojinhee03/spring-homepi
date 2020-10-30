@@ -1,5 +1,7 @@
 package com.example.homepi.vo;
 
+import java.util.List;
+
 import lombok.Data;
 
 @Data
@@ -10,4 +12,7 @@ public class BoardVo {
 	private String contents;
 	private String attchFile;
 	private String writeDate;
+	private String empno;
+	private List<BoardVo> data;
+	
 }

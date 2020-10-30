@@ -5,6 +5,9 @@
 <mapper namespace="com.example.homepi.dao.BoardDao">
 
   <insert id="writeBoard" parameterType="com.example.homepi.vo.BoardVo">
-  		insert into post(title,contents,attach_file,write_date,empno)values(#{title},#{contents},'attach_file',now(),'홍길동');
+  	insert into post(title,contents,attach_file,write_date,empno)values(#{title},#{contents},'attach_file',now(),'홍길동');
   </insert>
+  <select id="viewBoard" resultType="com.example.homepi.vo.BoardVo">
+  	select * from post order by write_date;
+  </select>
 </mapper>

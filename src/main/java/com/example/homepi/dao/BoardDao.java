@@ -1,5 +1,6 @@
 package com.example.homepi.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -17,5 +18,9 @@ public class BoardDao {
 	
 	public void writeBoard(BoardVo boardVo) {
 		sqlSession.insert(NAMESPACE+"writeBoard",boardVo);
+	}
+
+	public List viewBoard() {
+		return sqlSession.selectList(NAMESPACE+"viewBoard");
 	}
 }
