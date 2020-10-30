@@ -7,7 +7,16 @@
   <insert id="writeBoard" parameterType="com.example.homepi.vo.BoardVo">
   	insert into post(title,contents,attach_file,write_date,empno)values(#{title},#{contents},'attach_file',now(),'홍길동');
   </insert>
-  <select id="viewBoard" resultType="com.example.homepi.vo.BoardVo">
-  	select * from post order by write_date;
+  <select id="viewBoardList" resultType="com.example.homepi.vo.BoardVo">
+  	select * from post order by postno;
   </select>
+  <select id="viewBoard" resultType="com.example.homepi.vo.BoardVo">
+  	select * from post where postno=#{postno};
+  </select>
+  <update id="updateBoard">
+  	update post set
+  		title=#{title},
+  		contents=#{contents}
+  		where postno=#{postno}::integer;
+  </update>
 </mapper>

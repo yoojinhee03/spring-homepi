@@ -24,8 +24,26 @@ public class BoardService implements BoardServiceInterface{
 	}
 
 	@Override
-	public List viewBoard() {
-		return boardDao.viewBoard();
+	public List viewBoardList() {
+		return boardDao.viewBoardList();
+	}
+
+	@Override
+	public BoardVo viewBoard(int postno) {
+		// TODO Auto-generated method stub
+		return boardDao.viewBoard(postno);
+	}
+
+	@Override
+	public void updateBoard(BoardVo boardVo) {
+		// TODO Auto-generated method stub
+		int result=boardDao.updateBoard(boardVo);
+		if(result>=1) {
+			System.out.println("셩ㄱ오!!!!!!!!!!!!!!!!!!!!!");
+		}else {
+			System.out.println("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb오!!!!!!!!!!!!!!!!!!!!!");
+
+		}
 	}
 	
 }

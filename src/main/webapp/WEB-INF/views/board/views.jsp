@@ -46,6 +46,10 @@ $.ajax({
 		작성자 : ${ll.empno}<br>
 		제목 : ${ll.title }<br>
 		내용 : ${ll.contents }<br>
+		<form action="homepi/board/update" method="post">
+			<input type="hidden" name="postno" value="${ll.postno }">
+			<input type="submit" value="수정">
+		</form>
 	</div>
 	</c:forEach>
 </body>

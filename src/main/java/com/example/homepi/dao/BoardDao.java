@@ -16,11 +16,21 @@ public class BoardDao {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	public void writeBoard(BoardVo boardVo) {
-		sqlSession.insert(NAMESPACE+"writeBoard",boardVo);
+	public int writeBoard(BoardVo boardVo) {
+		return sqlSession.insert(NAMESPACE+"writeBoard",boardVo);
 	}
 
-	public List viewBoard() {
-		return sqlSession.selectList(NAMESPACE+"viewBoard");
+	public List viewBoardList() {
+		return sqlSession.selectList(NAMESPACE+"viewBoardList");
+	}
+
+	public BoardVo viewBoard(int postno) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(NAMESPACE+"viewBoard", postno);
+	}
+
+	public int updateBoard(BoardVo boardVo) {
+		// TODO Auto-generated method stub
+		return sqlSession.update(NAMESPACE+"updateBoard", boardVo);
 	}
 }

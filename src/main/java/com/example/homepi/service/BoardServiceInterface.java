@@ -7,5 +7,7 @@ import com.example.homepi.vo.BoardVo;
 
 public interface BoardServiceInterface {
 	public void writeBoard(BoardVo boardVo);
-	public List viewBoard();
+	public List viewBoardList();
+	public BoardVo viewBoard(int postno);
+	public void updateBoard(BoardVo boardVo);
 }

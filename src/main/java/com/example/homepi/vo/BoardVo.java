@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class BoardVo {
 
-	private String postNo;
+	private String postno;
 	private String title;
 	private String contents;
 	private String attchFile;
