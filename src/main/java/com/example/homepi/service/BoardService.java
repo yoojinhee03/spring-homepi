@@ -23,9 +23,9 @@ public class BoardService implements BoardServiceInterface{
 		int result=boardDao.writeBoard(boardVo);
 		//로그 처리하기
 		if(result>=1) {
-			System.out.println("게시물 수정을 성공적으로 마쳤습니다.");
+			System.out.println("게시물 작성을 성공적으로 마쳤습니다.");
 		}else {
-			System.out.println("게시물 수정을 실패하였습니다.");
+			System.out.println("게시물 작성을 실패하였습니다.");
 		}
 	}
 
