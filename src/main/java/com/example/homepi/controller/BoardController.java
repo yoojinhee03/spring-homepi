@@ -1,5 +1,6 @@
 package com.example.homepi.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,6 +12,7 @@ import com.example.homepi.vo.BoardVo;
 @Controller
 public class BoardController {
 
+	@Autowired
 	BoardServiceInterface boardSerice;
 	//게시물 작성 페이지로 이동 
 	@GetMapping(value="board/write.do")
