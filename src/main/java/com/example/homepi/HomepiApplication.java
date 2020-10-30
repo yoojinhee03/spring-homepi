@@ -13,22 +13,22 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 @EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class})
 public class HomepiApplication {
 
-	 @Bean//반환된 객체가 Bean Container에 등록
-	    public MessageSource messageSource() {//다국어 지원
-	        ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-	        messageSource.setBasename("classpath:messages");
-	        messageSource.setDefaultEncoding("UTF-8");
-	        return messageSource;
-	    }
-		
-	    @Bean
-	    public LocalValidatorFactoryBean validator() {//빈에 자동등록
-	        LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();
-	        bean.setValidationMessageSource(messageSource());
-	        return bean;
-	    }
+ 	@Bean//반환된 객체가 Bean Container에 등록
+    public MessageSource messageSource() {//다국어 지원
+        ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+        messageSource.setBasename("classpath:messages");
+        messageSource.setDefaultEncoding("UTF-8");
+        return messageSource;
+    }
+	
+    @Bean
+    public LocalValidatorFactoryBean validator() {//빈에 자동등록
+        LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();
+        bean.setValidationMessageSource(messageSource());
+        return bean;
+    }
 
-		public static void main(String[] args) {
-			SpringApplication.run(HomepiApplication.class, args);
-		}//시작 파일
+	public static void main(String[] args) {
+		SpringApplication.run(HomepiApplication.class, args);
+	}//시작 파일
 }

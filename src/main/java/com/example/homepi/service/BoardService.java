@@ -17,6 +17,7 @@ public class BoardService implements BoardServiceInterface{
 	BoardDao boardDao;
 	
 	@Override
+	@Transactional(propagation=Propagation.REQUIRED) //@Transactional(propagation=Propagation.REQUIRED)
 	public void writeBoard(BoardVo boardVo) {
 		boardDao.writeBoard(boardVo);
 	}
