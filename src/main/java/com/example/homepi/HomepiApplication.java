@@ -4,6 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
@@ -11,7 +13,7 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 @SpringBootApplication
 @EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class})
-public class HomepiApplication {
+public class HomepiApplication extends SpringBootServletInitializer{
 
  	@Bean//반환된 객체가 Bean Container에 등록
     public MessageSource messageSource() {//다국어 지원
@@ -20,7 +22,10 @@ public class HomepiApplication {
         messageSource.setDefaultEncoding("UTF-8");
         return messageSource;
     }
-	
+ 	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+		return builder.sources(HomepiApplication.class);
+	}
     @Bean
     public LocalValidatorFactoryBean validator() {//빈에 자동등록
         LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();

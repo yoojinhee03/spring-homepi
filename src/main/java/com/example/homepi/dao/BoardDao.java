@@ -25,17 +25,14 @@ public class BoardDao {
 	}
 
 	public BoardVo viewBoard(int postno) {
-		// TODO Auto-generated method stub
 		return sqlSession.selectOne(NAMESPACE+"viewBoard", postno);
 	}
 
 	public int updateBoard(BoardVo boardVo) {
-		// TODO Auto-generated method stub
 		return sqlSession.update(NAMESPACE+"updateBoard", boardVo);
 	}
 
 	public int deleteBoard(int postno) {
-		// TODO Auto-generated method stub
 		return sqlSession.delete(NAMESPACE+"deleteBoard", postno);
 	}
 }

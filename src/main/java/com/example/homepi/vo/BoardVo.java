@@ -13,6 +13,5 @@ public class BoardVo {
 	private String attchFile;
 	private String writeDate;
 	private String empno;
-	private List<BoardVo> data;
-	
+	private String views;
 }
