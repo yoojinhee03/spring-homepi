@@ -14,7 +14,7 @@ spring:
     hikari:
       driver-class-name: org.postgresql.Driver
       jdbc-url: "jdbc:postgresql://localhost:5432/homepi"
-      username: homepiuser
+      username: postgres
       password: 1234
       connection-test-query: select 1
       minimum-idle: 10

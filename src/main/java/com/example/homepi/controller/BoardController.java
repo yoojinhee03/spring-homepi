@@ -27,6 +27,7 @@ public class BoardController {
 		//ListVo listVo=new ListVo();
 		//listVo.setData(boardSerice.viewBoard());
 		model.addAttribute("board",boardService.viewBoardList());
+		//System.out.println("dddddddddddddddddd"+boardService.viewBoardList().get(0));
 		return "board/views";
 	}
 	/*
