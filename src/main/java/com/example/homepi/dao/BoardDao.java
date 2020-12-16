@@ -35,4 +35,5 @@ public class BoardDao {
 	public int deleteBoard(int postno) {
 		return sqlSession.delete(NAMESPACE+"deleteBoard", postno);
 	}
+
 }

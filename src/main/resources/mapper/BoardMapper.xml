@@ -8,7 +8,7 @@
   	insert into post(title,contents,write_date,id)values(#{title},#{contents},now(),'wlsgml');
   </insert>
   <select id="viewBoardList" resultType="com.example.homepi.vo.BoardVo">
-  	select * from post order by postno;
+  	select * from post order by postno desc;
   </select>
   <select id="viewBoard" resultType="com.example.homepi.vo.BoardVo">
   	select * from post where postno=#{postno};

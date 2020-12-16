@@ -18,22 +18,24 @@
                 </div>
                 <div class="right">
                     <div class="box">
-                        <div class="top">
-                            <div id="area-id">
-                                <input type="text">
-                            </div>
-                            <div id="area-pw">
-                                <input type="password">
-                            </div>
-                            <div id="area-login-button">
-                                <input type="submit" value="로그인">
-                            </div>
-                            <div>
-                                <a href="">
-                                    비밀번호를 잊으셨나요?
-                                </a>
-                            </div>
-                        </div>
+	                    <form action="/homepi/loginProc" method="post">
+	                        <div class="top">
+	                            <div id="area-id">
+	                                <input type="text" placeholder="id를 입력해주세요" name="id">
+	                            </div>
+	                            <div id="area-pw">
+	                                <input type="password" placeholder="password를 입력해주세요" name="password">
+	                            </div>
+	                            <div id="area-login-button">
+	                                <input type="submit" value="로그인">
+	                            </div>
+	                            <div>
+	                                <a href="">
+	                                    비밀번호를 잊으셨나요?
+	                                </a>
+	                            </div>
+	                        </div>
+                        </form>
                         <div class="bottom">
                             <div id="area-signup-button">
                                 <button>새 계정 만들기</button>
