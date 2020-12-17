@@ -1,14 +1,14 @@
 package com.example.homepi.controller;
 
-import java.util.HashMap;
-import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.homepi.service.UserServiceInterface;
 import com.example.homepi.vo.UserVo;
@@ -24,12 +24,16 @@ public class UserController {
 		return "login";
 	}
 	@PostMapping(value="homepi/loginProc")
-	public String loginProc(UserVo userVo,Model model) {
-				
-		Boolean result=userService.loginProc(userVo)==null?false:true;
-		System.out.println(result);
+	public String loginProc(UserVo userVo,Model model,HttpServletRequest request) throws Exception{
+		
+		UserVo user=userService.loginProc(userVo);
+		Boolean result=user==null?false:true;
+		HttpSession session=request.getSession();
+		
 		if(result) {
-			//model.addAttribute("user", userService.loginProc(userVo));
+			session.setAttribute("id", userVo.getId());
+			session.setAttribute("password", userVo.getPassword());
+			session.setAttribute("name", user.getName());
 			return "redirect:.";
 		}else {
 			return "login";

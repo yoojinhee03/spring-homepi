@@ -1,6 +1,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java"  session="true" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%
+	session=request.getSession();
+	String id=(String)session.getAttribute("id");
+	String password=(String)session.getAttribute("password");
+	String name=(String)session.getAttribute("name");
+	//out.println("dddddddddssssss"+id+","+password+","+name);	
+	if(id==null&&password==null&&name==null){
+		response.sendRedirect("homepi/login");
+	}
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -76,7 +85,7 @@ $.ajax({
             <div class="profile_box">
               <img src="images/profile.jpg" alt="프로필" class="profile">
             </div>
-            <strong><div class="name">ddd</div></strong>
+            <strong><div class="name"><%=name %></div></strong>
             <ul>
             <li>
               <a href="">
@@ -114,10 +123,10 @@ $.ajax({
             <div class="top">
               <div class="top-center">
                 <div class="profile_box">
-                  <img class="profile" src="images/profile.jpg" alt="프로필사진">
+                  <img class="profile" src="${pageContext.request.contextPath}/images/profile.jpg" alt="프로필사진">
                 </div>
                 <div class="feed_post">
-                  ddd님, 무슨 생각을 하고 계신가요?
+                  <%=name %>님, 무슨 생각을 하고 계신가요?
                 </div>
               </div>
             </div>
